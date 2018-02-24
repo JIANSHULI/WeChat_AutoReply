@@ -31,13 +31,13 @@ class WX(tornado.web.RequestHandler):
             else:
                 return wechat.response_none()
         
-        if isinstance(wechat.message, ImageMessage):
-            picurl = wechat.message.picurl                     # PicUrl
-            media_id = wechat.message.media_id                 # MediaId
-            msg_id = wechat.message.msg_id                     # MsgId
-            create_time = wechat.message.create_time           # CreateTime 
-#            wechat.response_text(content=u'%s'%picurl)
-            return wechat.response_text(content=u'尝试做下图片分析~')
+#        if isinstance(wechat.message, ImageMessage):
+#            picurl = wechat.message.picurl                     # PicUrl
+#            media_id = wechat.message.media_id                 # MediaId
+#            msg_id = wechat.message.msg_id                     # MsgId
+#            create_time = wechat.message.create_time           # CreateTime 
+##            wechat.response_text(content=u'%s'%picurl)
+#            return wechat.response_text(content=u'尝试做下图片分析~')
         
         if isinstance(wechat.message, ImageMessage):
             picurl = wechat.message.picurl                     # PicUrl
