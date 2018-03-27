@@ -59,14 +59,14 @@ def textReply(msg):
 			print(replied_data['code'])
 			print(replied_data['text'])
 			itchat.send(('助手A: ' + replied_data['text']), msg['FromUserName'])
-			
+		
 		elif replied_data['code'] == 200000:
 			print(replied_data['code'])
 			print(replied_data['text'])
 			print(replied_data['url'])
 			itchat.send(('助手A: ' + replied_data['text']), msg['FromUserName'])
 			itchat.send(('助手A: 请点击如下链接吧，\n' + replied_data['url']), msg['FromUserName'])
-			
+		
 		elif replied_data['code'] == 302000: #news
 			print(replied_data['code'])
 			print(replied_data['text'])
@@ -76,10 +76,10 @@ def textReply(msg):
 			news_i = 0
 			for news_i in range(np.array([len(replied_data['list']), news_number]).min()):
 				news = news + replied_data['list'][news_i]['article'] + ', url: ' + replied_data['list'][news_i]['detailurl'] + ' --来自' + replied_data['list'][news_i]['source'] + '；' + '\n'
-				news_i += 1
+			# news_i += 1
 			itchat.send(('助手A: ' + replied_data['text']), msg['FromUserName'])
 			itchat.send(('助手A: 请浏览如下内容并点击阅读详情啦，\n' + news), msg['FromUserName'])
-			
+		
 		elif replied_data['code'] == 308000: #recipe
 			print(replied_data['code'])
 			print(replied_data['text'])
@@ -90,24 +90,24 @@ def textReply(msg):
 			
 			for recipes_i in range(np.array([len(replied_data['list']), recipes_number]).min()):
 				recipes = recipes + replied_data['list'][recipes_i]['name'] + ', url: ' + replied_data['list'][recipes_i]['info'] + ' --详情' + replied_data['list'][recipes_i]['detailurl'] + '；' + '\n'
-				recipes_i += 1
+			# recipes_i += 1
 			itchat.send(('助手A: ' + replied_data['text']), msg['FromUserName'])
 			itchat.send(('助手A: 请参考如下内容并点击查看详情哦 ~ \n' + recipes), msg['FromUserName'])
-			
+		
 		elif replied_data['code'] == 313000: #song
 			print(replied_data['code'])
 			print(replied_data['text'])
 			print(replied_data['function'])
 			itchat.send(('助手A: ' + replied_data['text']), msg['FromUserName'])
 			itchat.send(('助手A: 请欣赏如下内容并点击仔细品味吧，\n' + replied_data['function']['song'] + ' --来自' + replied_data['function']['singer']), msg['FromUserName'])
-			
+		
 		elif replied_data['code'] == 314000: #poetry
 			print(replied_data['code'])
 			print(replied_data['text'])
 			print(replied_data['function'])
 			itchat.send(('助手A: ' + replied_data['text']), msg['FromUserName'])
 			itchat.send(('助手A: 请欣赏如下内容并点击仔细品味吧，\n' + replied_data['function']['name'] + ' --来自' + replied_data['function']['author']), msg['FromUserName'])
-			
+		
 		else:
 			print(replied_data['code'])
 			print(replied_data['text'])

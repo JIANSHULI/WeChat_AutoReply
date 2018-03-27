@@ -58,21 +58,21 @@ class WX(tornado.web.RequestHandler):
                 vision_results_landmark = 'landmark: '
                 
                 try:
-                    vision_results_text = ('分析师A：\n 图片文字：' + vision_results['responses'][0]['textAnnotations'][0]['description'])
+                    vision_results_text = ('Albert Mozart：\n 图片文字：' + vision_results['responses'][0]['textAnnotations'][0]['description'])
                     print(vision_results_text)
 #                    wechat.response_text(content=vision_results_text)
                 except:
                     pass
                     
                 try:
-                    vision_results_label = ('分析师A：\n 图片内容分析：' + str([vision_results['responses'][0]['labelAnnotations'][index]['description'] for index in range(len(vision_results['responses'][0]['labelAnnotations']))])[1:-1])
+                    vision_results_label = ('Albert Mozart：\n 图片内容分析：' + str([vision_results['responses'][0]['labelAnnotations'][index]['description'] for index in range(len(vision_results['responses'][0]['labelAnnotations']))])[1:-1])
                     print(vision_results_label)
-                    #vision_results_label = ('分析师A：\n 图片内容分析：' + str([(vision_results['responses'][0]['labelAnnotations'][index]['description'], vision_results['responses'][0]['labelAnnotations'][index]['description']) for index in range(len(vision_results['responses'][0]['labelAnnotations']))])[1:-1])
+                    #vision_results_label = ('Albert Mozart：\n 图片内容分析：' + str([(vision_results['responses'][0]['labelAnnotations'][index]['description'], vision_results['responses'][0]['labelAnnotations'][index]['description']) for index in range(len(vision_results['responses'][0]['labelAnnotations']))])[1:-1])
                 except:
                     pass
                     
                 try:
-                    vision_results_simurl = ('分析师A：\n 联想图片：' + str(vision_results['responses'][0]['webDetection']['bestGuessLabels'][0]['label'])+ ', ' + str([vision_results['responses'][0]['webDetection']['visuallySimilarImages'][ind]['url'] for ind in range(len(vision_results['responses'][0]['webDetection']['visuallySimilarImages']))])[1:-1])
+                    vision_results_simurl = ('Albert Mozart：\n 联想图片：' + str(vision_results['responses'][0]['webDetection']['bestGuessLabels'][0]['label'])+ ', ' + str([vision_results['responses'][0]['webDetection']['visuallySimilarImages'][ind]['url'] for ind in range(len(vision_results['responses'][0]['webDetection']['visuallySimilarImages']))])[1:-1])
                     print(vision_results_simurl)
                 except:
                     pass
@@ -83,13 +83,13 @@ class WX(tornado.web.RequestHandler):
                     del vision_results_face['landmarks']
                     del vision_results_face['boundingPoly']
                     del vision_results_face['fdBoundingPoly']
-                    vision_results_face = ('分析师A：\n 人脸分析：' + str(vision_results_face)[1:-1])
+                    vision_results_face = ('Albert Mozart：\n 人脸分析：' + str(vision_results_face)[1:-1])
                     print(vision_results_face)
                 except:
                     pass
                 
                 try:
-                    vision_results_landmark = ('分析师A：\n 地标分析：' + str([(vision_results['responses'][0]['landmarkAnnotations'][index]['description'], vision_results['responses'][0]['landmarkAnnotations'][index]['locations']) for index in range(len(vision_results['responses'][0]['landmarkAnnotations']))])[1:-1])
+                    vision_results_landmark = ('Albert Mozart：\n 地标分析：' + str([(vision_results['responses'][0]['landmarkAnnotations'][index]['description'], vision_results['responses'][0]['landmarkAnnotations'][index]['locations']) for index in range(len(vision_results['responses'][0]['landmarkAnnotations']))])[1:-1])
                     print(vision_results_landmark)
                 except:
                     pass
