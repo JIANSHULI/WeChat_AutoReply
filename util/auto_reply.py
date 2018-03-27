@@ -85,8 +85,8 @@ class TulingAutoReply:
                 print(replied_data['code'])
                 print(replied_data['text'])
                 return('Albert Mozart: ' + replied_data['text'].replace('<br>', '\n'))
-            else:
-                return None
+            # else:
+            #     return None
         
         except Exception:
             traceback.print_exc()
